@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  @apply min-h-screen;
+  @apply min-h-screen text-grey-50;
   background-image: url('/background.svg');
   background-repeat: no-repeat;
 }
