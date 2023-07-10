@@ -6,3 +6,9 @@
 body {
   font-family: 'Poppins', Helvetica, sans-serif;
 }
+
+main {
+  @apply min-h-screen;
+  background-image: url('/background.svg');
+  background-repeat: no-repeat;
+}
