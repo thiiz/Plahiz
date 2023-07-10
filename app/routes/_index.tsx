@@ -1,4 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
+import { Hero } from "~/components/hero";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -10,8 +11,6 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex justify-center items-center">
-      Home
-    </div>
+    <Hero />
   );
 }
