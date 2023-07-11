@@ -1,6 +1,6 @@
 import type { LinksFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import stylesheet from "./styles/globals.css";
-
 import {
   Links,
   LiveReload,
@@ -8,14 +8,33 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import { Header } from "./components/header";
+
+declare global {
+  interface Window {
+    ENV: {
+      TMDB_JWT_AUTHORIZATION_TOKEN: string;
+    };
+  }
+}
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
+export async function loader() {
+  return json({
+    ENV: {
+      TMDB_JWT_AUTHORIZATION_TOKEN: process.env.TMDB_JWT_AUTHORIZATION_TOKEN,
+      TMDB_IMG: process.env.TMDB_IMG,
+    },
+  });
+}
+
 export default function App() {
+  const data = useLoaderData<typeof loader>();
   return (
     <html lang="pt-br">
       <head>
@@ -32,6 +51,13 @@ export default function App() {
           <Scripts />
           <LiveReload />
         </main>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(
+              data.ENV
+            )}`,
+          }}
+        />
       </body>
     </html>
   );
