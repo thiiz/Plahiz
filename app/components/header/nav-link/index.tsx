@@ -5,8 +5,8 @@ interface linkProps {
 }
 const Link: React.FC<linkProps> = ({ to, text }) => {
   return (
-    <NavLink to={to} className={({ isActive, isPending }) =>
-      `${isPending ? "text-error-500" : isActive ? "text-grey-50" : "text-grey-200"} font-bold text-base capitalize tracking-wider`
+    <NavLink to={to} className={({ isActive }) =>
+      `${isActive ? "text-grey-50" : "text-grey-200"} font-bold text-base capitalize tracking-wider`
     }>
       {text}
     </NavLink>

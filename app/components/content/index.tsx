@@ -1,9 +1,8 @@
-import type { ContentProps } from "~/@types/content";
 import { DefaultButton } from "../buttons"
 import { CardsMovies } from "../card-movie";
 import { useContent } from "./useContent";
 
-const Content: React.FC<{ content: ContentProps }> = ({ content }) => {
+const Content = () => {
   const {
     all,
     movies,
