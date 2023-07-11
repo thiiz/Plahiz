@@ -4,12 +4,11 @@
 @tailwind utilities;
 
 body {
-  @apply px-5;
   font-family: 'Poppins', Helvetica, sans-serif;
+  background-image: url('/background.svg');
+  background-repeat: no-repeat;
 }
 
 main {
-  @apply min-h-screen text-grey-50;
-  background-image: url('/background.svg');
-  background-repeat: no-repeat;
+  @apply min-h-screen text-grey-50 px-5;
 }
